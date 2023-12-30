@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose'; 
 import dotenv from 'dotenv'; 
+import cors from "cors";
+
 dotenv.config(); 
 
 import userRoute from './routes/user.js'; 
@@ -10,6 +12,13 @@ import blogRoute from './routes/blog.js';
 
 const app = express();
 app.use(express.json()); 
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credential: true,
+  })
+);
 
 const connect = async () => {
   try {
