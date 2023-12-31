@@ -52,7 +52,7 @@ export const loginStudent = async (req, res, next) => {
       })
       .status(200)
       // sending all details except password
-      .json({ details: { ...otherDetails } });
+      .json(user);
   } catch (err) {
     next(err);
   }
