@@ -23,17 +23,20 @@ export const fetchBlogbyId = async (req, res, next) => {
 };
 
 export const createBlog = async (req, res, next) => {
-  const { Author } = req.body; 
-  const newBlog = new Blog(req.body);
+  // const { Author } = req.body; 
+  // const newBlog = new Blog(req.body);
   try {
-    const user = await User.findById(Author); 
-    if (!user) {
-      return res.send({ message: 'User not found' });
-    }
+    // const user = await User.findById(Author); 
+    // if (!user) {
+    //   return res.send({ message: 'User not found' });
+    // }
+    // const savedBlog = await newBlog.save();
+    // // Blog.Author = user_id save 
+    // user.blogs.push({blog_id: savedBlog._id});
+    // const something = await user.save();
+    // res.status(200).json(savedBlog);
+    const newBlog = new Blog(req.body);
     const savedBlog = await newBlog.save();
-    // Blog.Author = user_id save 
-    user.blogs.push({blog_id: savedBlog._id});
-    const something = await user.save();
     res.status(200).json(savedBlog);
   } 
   catch (e) {

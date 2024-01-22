@@ -14,7 +14,7 @@ export const fetchPostbyId = async (req, res, next) => {
   try {
     const post = await Posts.findById(req.params.id);
     if (!post) {
-      return res.status(404).json({ message: "user not found" });
+      return res.status(404).json({ message: "post not found" });
     }
     res.status(200).json(post);
   } catch (e) {
@@ -23,18 +23,21 @@ export const fetchPostbyId = async (req, res, next) => {
 };
 
 export const createPost = async (req, res, next) => {
-  const { Author } = req.body; 
-  const newPost = new Posts(req.body);
+  // const { Author } = req.body; 
+  // const newPost = new Posts(req.body);
   try {
-    const user = await User.findById(Author); 
-    if (!user) {
-      return res.send({ message: 'User not found' });
-    }
+  //   const user = await User.findById(Author); 
+  //   if (!user) {
+  //     return res.send({ message: 'User not found' });
+  //   }
+  //   const savedPost = await newPost.save();
+  //   // post.Author = user_id save 
+  //   user.posts.push({post_id: savedPost._id});
+  //   console.log(user.posts.length);
+  //   const something = await user.save();
+  //   res.status(200).json(savedPost);
+    const newPost = new Posts(req.body);
     const savedPost = await newPost.save();
-    // post.Author = user_id save 
-    user.posts.push({post_id: savedPost._id});
-    console.log(user.posts.length);
-    const something = await user.save();
     res.status(200).json(savedPost);
   } 
   catch (e) {

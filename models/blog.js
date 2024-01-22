@@ -6,10 +6,14 @@ const BlogSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        // Author: {
+        //   type: mongoose.Schema.Types.ObjectId,
+        //   ref: 'User',
+        // },
         Author: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'User',
-        },
+          type: String, 
+          required: true, 
+        }, 
         Content: {
             type: String,
             required: true,
@@ -19,7 +23,6 @@ const BlogSchema = new mongoose.Schema(
         },
         num_likes: {
             type: Number,
-
         },
         num_dislikes: {
           type: Number,

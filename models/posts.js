@@ -6,9 +6,13 @@ const PostsSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        // Author: {
+        //   type: mongoose.Schema.Types.ObjectId,
+        //   ref: 'User',
+        // },
         Author: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'User',
+          type: String, 
+          required: true, 
         },
         Content: {
             type: String,
