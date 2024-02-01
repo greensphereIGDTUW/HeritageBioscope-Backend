@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose'; 
 import dotenv from 'dotenv'; 
 import cors from "cors";
+import job from "./cron"; 
 
 dotenv.config(); 
 
@@ -19,6 +20,8 @@ app.use(
     credential: true,
   })
 );
+
+job.start(); 
 
 const connect = async () => {
   try {
