@@ -91,3 +91,13 @@ export const deletePost = async (req, res, next) => {
   }
 
 };
+
+
+export const likePost = async (req, res) => {
+
+  const post = await Posts.findById(req.params.id); 
+  //send what is required to be updated as an object
+  const updatedPost = await Posts.findByIdAndUpdate({_id: req.params.id}, {num_likes: post.num_likes+1}, {new: true})
+
+  res.json(updatedPost); 
+}

@@ -22,8 +22,8 @@ const PostsSchema = new mongoose.Schema(
             type: String,
         },
         num_likes: {
-            type: Number,
-
+            type: Number, 
+            default: 0
         },
         num_dislikes: {
           type: Number,
