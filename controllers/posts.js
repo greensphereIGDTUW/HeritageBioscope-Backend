@@ -101,3 +101,23 @@ export const likePost = async (req, res) => {
 
   res.json(updatedPost); 
 }
+
+export const addComment = async (req, res) => {
+  try {
+      const postId = req.params.id;
+      const { author, text } = req.body;
+      const post = await Posts.findById(postId);
+
+      if (!post) {
+          return res.status(404).json({ error: 'Post not found' });
+      }
+
+      post.comments.push({ author: author, text: text });
+      await post.save();
+
+      res.json(post);
+  } catch (error) {
+      console.error('Error adding comment:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+}

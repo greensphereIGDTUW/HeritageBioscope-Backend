@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://heritagebioscope.netlify.app",
+    origin: ["https://heritagebioscope.netlify.app", "http://localhost:3000"],
     credential: true,
   })
 );

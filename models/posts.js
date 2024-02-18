@@ -28,7 +28,13 @@ const PostsSchema = new mongoose.Schema(
         num_dislikes: {
           type: Number,
 
-      }
+        }, 
+        comments: [
+          { 
+            author: String, 
+            text: String 
+          }
+        ]
       // comments: [
       //     {
       //       comment_id:{
