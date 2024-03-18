@@ -2,19 +2,19 @@ import mongoose from "mongoose";
 
 const TeamSchema = new mongoose.Schema(
     {
-        Name: {
+        name: {
             type: String, 
             required: true 
         }, 
-        Desc: {
+        desc: {
             type: String, 
             required: true
         }, 
-        Social: {
+        social: {
             type: String, 
             required: true
         }, 
-        Photo: {
+        photo: {
             type: String, 
             required: true
         }
