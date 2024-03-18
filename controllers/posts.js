@@ -121,3 +121,13 @@ export const addComment = async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
+export const countPosts = async (req, res) => {
+  try {
+    const count = await Posts.countDocuments({}, { hint: "_id" }); 
+    res.json({ count });
+  } catch (error) {
+    console.error('Error fetching document count:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
